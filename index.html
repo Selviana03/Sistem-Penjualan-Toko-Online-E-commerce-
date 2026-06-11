@@ -1,14 +1,3 @@
-import 'package:flutter/material.dart';
-
-void main() => runApp(const MaterialApp(home: TokoATK()));
-
-class TokoATK extends StatefulWidget {
-  const TokoATK({super.key});
-
-  @override
-State<TokoATK> createState() => _TokoATKState();
- 
-}
 class HalamanKeranjang extends StatelessWidget {
   final List<String> items;
   const HalamanKeranjang({super.key, required this.items});
@@ -22,56 +11,6 @@ class HalamanKeranjang extends StatelessWidget {
         itemBuilder: (context, index) {
           return ListTile(title: Text(items[index]));
         },
-      ),
-    );
-  }
-}
-
-class _TokoATKState extends State<TokoATK> {
-  // Daftar belanjaan yang dipilih
-  List<String> keranjang = [];
-
-  // Daftar produk toko
-  final List<Map<String, dynamic>> daftarProduk = [
-    {"nama": "Buku Catatan", "harga": 15000},
-    {"nama": "Pulpen Gel", "harga": 5000},
-    {"nama": "Kalkulator", "harga": 25000},
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Toko ATK Kuliah')),
-      body: ListView.builder(
-        itemCount: daftarProduk.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(daftarProduk[index]["nama"]),
-            subtitle: Text("Rp ${daftarProduk[index]["harga"]}"),
-            trailing: IconButton(
-              icon: const Icon(Icons.add_shopping_cart),
-              onPressed: () {
-                setState(() {
-                  // Menambahkan ke list keranjang
-                  keranjang.add(daftarProduk[index]["nama"]);
-                });
-                // Notifikasi sukses
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('${daftarProduk[index]["nama"]} ditambahkan!')),
-                );
-              },
-            ),
-          );
-        },
-      ),
-      // Tombol untuk melihat jumlah barang di keranjang
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          // Aksi: Tampilkan ringkasan keranjang
-          print("Isi keranjang: $keranjang");
-        },
-        label: Text("Keranjang (${keranjang.length})"),
-        icon: const Icon(Icons.shopping_basket),
       ),
     );
   }
