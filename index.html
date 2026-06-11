@@ -1,17 +1,31 @@
-class HalamanKeranjang extends StatelessWidget {
-  final List<String> items;
-  const HalamanKeranjang({super.key, required this.items});
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Toko Alat Tulis - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("Keranjang Belanja")),
-      body: ListView.builder(
-        itemCount: items.length,
-        itemBuilder: (context, index) {
-          return ListTile(title: Text(items[index]));
-        },
-      ),
-    );
-  }
-}
+    <div class="login-container">
+        <h1>Toko Alat Tulis - Login</h1>
+        
+        <form>
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <button type="button" onclick="alert('Tombol ditekan!')">
+                Masuk ke Toko
+            </button>
+        </form>
+    </div>
+
+</body>
+</html>
